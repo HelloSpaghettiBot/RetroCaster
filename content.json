@@ -1,0 +1,88 @@
+{
+  "meta": {
+    "title": "Retro & MMORPG Podcast",
+    "brand": "Retro & MMORPG Podcast",
+    "subscribeUrl": "https://podcasts.apple.com/your-show-or-rss"
+  },
+  "hero": {
+    "title": "Deep dives into <span class=\"accent\">retro classics</span> & legendary <span class=\"accent\">MMORPGs</span>",
+    "subtitle": "Weekly discussions, dev interviews, and nostalgia-fueled debates",
+    "ctaPrimary": {
+      "label": "Listen now",
+      "href": "#podcast"
+    },
+    "ctaSecondary": {
+      "label": "Browse episodes",
+      "href": "#episodes"
+    }
+  },
+  "about": {
+    "heading": "About the show",
+    "copy": "We unpack retro gems from the 8-bit era to early 3D and roam the worlds of classic and modern MMORPGs.",
+    "bullets": [
+      "New episodes every week",
+      "Show notes and links for every topic",
+      "Requests welcome \u2014 we love deep cuts"
+    ]
+  },
+  "listen": {
+    "heading": "Listen",
+    "embedLabel": "Paste embed/MP3",
+    "embedHint": "If an MP3 is provided, the audio player is used."
+  },
+  "episodesHeading": "Latest episodes",
+  "retroHeading": "Retro spotlights",
+  "featuredHeading": "Featured",
+  "contact": {
+    "heading": "Contact",
+    "html": "<p>Email: hello@yourshow.dev</p><p>Twitter/X: @yourshow</p><p>Discord: invite.gg/yourshow</p>"
+  },
+  "episodes": [
+    {
+      "id": "21",
+      "title": "#21 \u2014 The Golden Age of 16-bit RPGs",
+      "description": "Chrono Trigger vs FFVI, systems that still hold up, and why Mode-7 felt like magic",
+      "duration": "58 min",
+      "tag": "Retro",
+      "embedUrl": "https://open.spotify.com/embed/episode/0ofbQMrRDsUaVKq2mGLEo0"
+    },
+    {
+      "id": "20",
+      "title": "#20 \u2014 Patch Notes That Changed MMOs",
+      "description": "From WoW 1.12 to OSRS: how updates reshape entire metas",
+      "duration": "1 hr 12 min",
+      "tag": "MMORPG",
+      "audioUrl": "https://cdn.example.com/audio/ep20.mp3",
+      "link": "https://example.com/episodes/20"
+    }
+  ],
+  "retro": [
+    {
+      "title": "8-bit to 16-bit",
+      "blurb": "Tight design, crunchy sound \u2014 why limitations made masterpieces",
+      "url": "/retro/8-to-16-bit"
+    },
+    {
+      "title": "Arcade legends",
+      "blurb": "Score chasers and the social vibe of real cabinets",
+      "url": "https://example.com/retro/arcade-legends",
+      "target": "_blank"
+    }
+  ],
+  "featured": [
+    {
+      "type": "episode",
+      "title": "Start here: #21 \u2014 16-bit RPGs",
+      "subtitle": "Fan favorite",
+      "episodeId": "21",
+      "description": "Why 1994\u20131996 still defines the genre"
+    },
+    {
+      "type": "link",
+      "title": "Submit a topic",
+      "subtitle": "We read every request",
+      "url": "https://forms.gle/your-form",
+      "description": "Tell us the next deep dive you want"
+    }
+  ]
+}

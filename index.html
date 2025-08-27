@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title id="siteTitle">Podcast</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <!-- Fixed header -->
+  <header class="header" role="banner">
+    <div class="wrap nav">
+      <a href="#top" class="brand" aria-label="Home">
+        <span class="brand-badge">▶</span>
+        <span class="brand-title" id="brandTitle">Podcast</span>
+      </a>
+
+      <!-- Desktop nav (STATIC links) -->
+      <nav class="desk-nav" aria-label="Primary">
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#podcast">Listen</a>
+        <a class="nav-link" href="#episodes">Episodes</a>
+        <a class="nav-link" href="#retro">Retro</a>
+        <a class="nav-link" href="#featured">Featured</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </nav>
+
+      <!-- Mobile toggle -->
+      <button id="menuBtn" class="menu-btn" aria-controls="mobileNav" aria-expanded="false" aria-label="Open menu">☰</button>
+    </div>
+
+    <!-- Mobile dropdown (STATIC links) -->
+    <div id="mobileNav" class="mobile-nav" aria-hidden="true">
+      <div class="wrap mobile-links">
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#podcast">Listen</a>
+        <a class="nav-link" href="#episodes">Episodes</a>
+        <a class="nav-link" href="#retro">Retro</a>
+        <a class="nav-link" href="#featured">Featured</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </div>
+      <button id="closeNav" class="overlay-close" aria-label="Close menu">×</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Each section fills the screen under the header -->
+    <section id="top" class="section hero">
+      <div class="wrap section-inner">
+        <h1 id="heroTitle">Loading…</h1>
+        <p class="mut" id="heroSubtitle"></p>
+        <div class="row gap">
+          <a href="#podcast" class="btn btn-primary" id="ctaPrimary">Listen now</a>
+          <a href="#episodes" class="btn btn-ghost" id="ctaSecondary">Browse episodes</a>
+        </div>
+      </div>
+      <div class="hero-bg" aria-hidden="true"></div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="wrap section-inner">
+        <h2 id="aboutHeading">About</h2>
+        <p class="mut maxw" id="aboutCopy"></p>
+        <ul class="bullets" id="aboutBullets"></ul>
+      </div>
+    </section>
+
+    <section id="podcast" class="section alt">
+      <div class="wrap section-inner">
+        <h2 id="listenHeading">Listen</h2>
+        <div class="frame">
+          <iframe id="playerFrame" src="about:blank"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <audio id="audioPlayer" class="audio" controls></audio>
+        <div id="nowPlaying" class="mut sm"></div>
+
+        <label for="embedUrl" class="label" id="embedLabel">Paste embed/MP3</label>
+        <div class="subscribe">
+          <input id="embedUrl" type="url" class="input" placeholder="Spotify/Apple/YouTube embed or MP3 URL" />
+          <button id="applyEmbed" class="btn btn-primary">Update</button>
+        </div>
+        <p class="mut xs" id="embedHint">If an MP3 is provided, the audio player is used.</p>
+      </div>
+    </section>
+
+    <section id="episodes" class="section">
+      <div class="wrap section-inner">
+        <div class="split-head">
+          <h2 id="episodesHeading">Latest episodes</h2>
+          <a id="subscribeLink" class="link hide" href="#" rel="noopener">Subscribe →</a>
+        </div>
+        <div id="episodesGrid" class="cards"></div>
+      </div>
+    </section>
+
+    <section id="retro" class="section alt">
+      <div class="wrap section-inner">
+        <h2 id="retroHeading">Retro spotlights</h2>
+        <div id="retroGrid" class="cards"></div>
+      </div>
+    </section>
+
+    <section id="featured" class="section">
+      <div class="wrap section-inner">
+        <h2 id="featuredHeading">Featured</h2>
+        <div id="featuredGrid" class="cards"></div>
+      </div>
+    </section>
+
+    <section id="contact" class="section alt">
+      <div class="wrap section-inner">
+        <h2 id="contactHeading">Contact</h2>
+        <div id="contactBody"></div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="wrap foot">
+        <div>© <span id="year"></span> <span id="footerBrand">Podcast</span></div>
+        <div class="foot-links"><a href="#top">Back to top</a></div>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
