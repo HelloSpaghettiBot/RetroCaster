@@ -67,23 +67,18 @@
     </section>
 
     <section id="podcast" class="section alt">
-      <div class="wrap section-inner">
-        <h2 id="listenHeading">Listen</h2>
-        <div class="frame">
-          <iframe id="playerFrame" src="about:blank"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-        </div>
-        <audio id="audioPlayer" class="audio" controls></audio>
-        <div id="nowPlaying" class="mut sm"></div>
-
-        <label for="embedUrl" class="label" id="embedLabel">Paste embed/MP3</label>
-        <div class="subscribe">
-          <input id="embedUrl" type="url" class="input" placeholder="Spotify/Apple/YouTube embed or MP3 URL" />
-          <button id="applyEmbed" class="btn btn-primary">Update</button>
-        </div>
-        <p class="mut xs" id="embedHint">If an MP3 is provided, the audio player is used.</p>
-      </div>
-    </section>
+  <div class="wrap section-inner">
+    <h2>Listen</h2>
+    <div class="frame">
+      <iframe 
+        src="https://open.spotify.com/embed/show/5tFabzKjFj7usbKFjVXMfp"
+        width="100%" height="100%" frameborder="0" 
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy">
+      </iframe>
+    </div>
+  </div>
+</section>
 
     <section id="episodes" class="section">
       <div class="wrap section-inner">
