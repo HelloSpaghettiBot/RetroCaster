@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title id="siteTitle">Podcast</title>
+  <title id="siteTitle">Retro & MMORPG Podcast</title>
 
   <style>
     /* ========== Base / Layout ========== */
@@ -13,7 +13,8 @@
     }
     *{box-sizing:border-box}
     html,body{height:100%}
-    body{margin:0;background:var(--ink);color:var(--fg);font:16px/1.55 system-ui,-apple-system,Segoe UI,Inter,Helvetica,Arial}
+    body{margin:0;background:var(--ink);color:var(--fg);
+      font:16px/1.55 system-ui,-apple-system,Segoe UI,Inter,Helvetica,Arial}
     a{color:var(--brand);text-decoration:none}
     .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
     .hide{display:none}
@@ -25,14 +26,12 @@
       border-bottom:1px solid var(--line); z-index:1000;
     }
     .nav{display:flex;align-items:center;justify-content:space-between;height:100%}
-    .brand{display:flex;align-items:center;gap:12px;color:var(--fg)}
+    .brand{display:flex;align-items:center;gap:12px;color:var(--fg);text-decoration:none}
     .brand-badge{display:inline-flex;width:36px;height:36px;align-items:center;justify-content:center;border-radius:12px;background:var(--brand);color:#000;font-weight:800}
     .brand-title{font-weight:800;letter-spacing:.2px}
-
     .desk-nav{display:flex;gap:18px}
-    .desk-nav a{color:var(--fg);opacity:.95}
+    .desk-nav a{color:var(--fg);opacity:.95;text-decoration:none}
     .desk-nav a:hover{color:#ffd0c9}
-
     .menu-btn{
       display:none;min-width:40px;height:40px;border-radius:10px;
       border:1px solid #ffffff26;background:#0000;color:var(--fg);
@@ -45,53 +44,59 @@
 
     /* ========== Modern Mobile Menu (drawer + backdrop) ========== */
     .drawer-backdrop{
-      position:fixed; inset:var(--header-h) 0 0 0; /* below header */
-      background:rgba(0,0,0,.5); opacity:0; pointer-events:none;
-      transition:opacity .25s ease; z-index:9998;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.55);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .25s ease;
+      z-index: 11000;
     }
-    .drawer-backdrop.open{ opacity:1; pointer-events:auto; }
+    .drawer-backdrop.open{opacity: 1;pointer-events:auto;}
 
     .drawer{
-      position:fixed; top:var(--header-h); right:0; bottom:0;
-      width:min(85vw, 380px);
-      background:#000; border-left:1px solid #1f1f1f;
-      transform:translateX(100%); transition:transform .28s ease;
-      z-index:9999; display:flex; flex-direction:column;
+      position: fixed;
+      top: 0; right: 0; bottom: 0;
+      width: min(86vw, 380px);
+      background: #000;
+      border-left: 1px solid #1f1f1f;
+      transform: translateX(100%);
+      transition: transform .28s ease;
+      z-index: 11001;
+      display: flex; flex-direction: column;
+      -webkit-overflow-scrolling: touch;
     }
-    .drawer.open{ transform:translateX(0); }
+    .drawer.open{transform: translateX(0);}
 
     .drawer-head{
-      display:flex; align-items:center; justify-content:space-between;
-      padding:14px 16px; border-bottom:1px solid #1f1f1f;
+      display:flex;align-items:center;justify-content:space-between;
+      padding:16px;border-bottom:1px solid #1f1f1f;
     }
     .drawer-title{font-weight:700}
     .drawer-close{
-      width:40px; height:40px; border-radius:10px; border:1px solid #222;
-      background:#111; color:#fff; font-size:22px; cursor:pointer;
-      display:inline-flex; align-items:center; justify-content:center;
+      width:44px;height:44px;border-radius:12px;border:1px solid #222;
+      background:#111;color:#fff;font-size:24px;line-height:1;cursor:pointer;
+      display:inline-flex;align-items:center;justify-content:center;
     }
-
     .drawer-links{
-      padding:14px 16px; display:flex; flex-direction:column; gap:10px; overflow:auto;
+      padding:16px;display:flex;flex-direction:column;gap:12px;overflow:auto;height:100%;
     }
     .drawer-links a{
-      display:block; width:100%; text-align:left;
-      padding:14px 16px; border-radius:12px; background:#121212;
-      border:1px solid #1f1f1f; color:#fff; text-decoration:none; font-size:18px;
+      display:block;padding:14px 16px;font-size:18px;
+      background:#121212;border:1px solid #1f1f1f;color:#fff;
+      border-radius:12px;text-decoration:none;
     }
-    .drawer-links a:active{ transform:translateY(1px); }
+    .drawer-links a:active{transform:translateY(1px)}
 
     /* ========== Sections (full screen below header) ========== */
-    main{padding-top:var(--header-h)} /* keep all content below fixed header */
+    main{padding-top:var(--header-h)}
     .section{
-      min-height: 100svh;
-      display:flex; align-items:center; position:relative;
+      min-height:100svh;
+      display:flex;align-items:center;position:relative;
       padding: clamp(28px, 6vh, 96px) 0;
       border-top:1px solid var(--line);
     }
-    @supports (height: 100dvh){
-      .section{ min-height: 100dvh; }
-    }
+    @supports(height:100dvh){.section{min-height:100dvh}}
     .section.alt{background:#ffffff0d;border-bottom:1px solid var(--line)}
     .section-inner{width:100%}
     .split-head{display:flex;gap:12px;align-items:end;justify-content:space-between;flex-wrap:wrap}
@@ -100,37 +105,32 @@
     .hero{position:relative}
     .hero h1{font-size:40px;margin:0}
     .accent{color:var(--brand)}
-    .hero-bg{position:absolute;inset:0;z-index:-1;opacity:.22;background:radial-gradient(45rem 45rem at 50% -10%, #fa807266, transparent 70%);filter:blur(2px)}
+    .hero-bg{position:absolute;inset:0;z-index:-1;opacity:.22;
+      background:radial-gradient(45rem 45rem at 50% -10%, #fa807266, transparent 70%);
+      filter:blur(2px)}
     .mut{color:var(--mut)} .mut.sm{font-size:14px} .mut.xs{font-size:12px}
     .maxw{max-width:58ch}
     .row.gap{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
 
-    /* ========== Buttons / inputs ========== */
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+    /* ========== Buttons ========== */
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
       padding:10px 16px;border-radius:12px;border:1px solid var(--line);
-      color:var(--fg);cursor:pointer
-    }
+      color:var(--fg);cursor:pointer}
     .btn-primary{background:var(--brand);color:#000;border-color:transparent;font-weight:700}
     .btn-ghost{background:transparent}
 
     /* ========== Cards ========== */
     .cards{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));margin-top:18px}
-    .card{
-      border:1px solid var(--line);background:#ffffff0d;border-radius:16px;
-      overflow:hidden;transition:transform .25s ease, background .25s ease
-    }
+    .card{border:1px solid var(--line);background:#ffffff0d;border-radius:16px;
+      overflow:hidden;transition:transform .25s ease,background .25s ease}
     .card:hover{transform:translateY(-2px)}
     .card-img{aspect-ratio:16/9;background:linear-gradient(135deg,#ffffff26,#ffffff0d)}
     .card-body{padding:14px}
 
-    /* ========== Spotify player sizing (no aspect-ratio gap) ========== */
+    /* ========== Spotify player (no aspect-ratio gap) ========== */
     .spotify-frame iframe{
-      width:100%;
-      height:152px;         /* compact show player */
-      border:0;
-      border-radius:12px;
-      display:block;
+      width:100%; height:152px;
+      border:0; border-radius:12px; display:block;
     }
 
     /* ========== Footer ========== */
@@ -151,7 +151,7 @@
         <span class="brand-title" id="brandTitle">Retro & MMORPG Podcast</span>
       </a>
 
-      <!-- Desktop nav (STATIC links) -->
+      <!-- Desktop nav (static) -->
       <nav class="desk-nav" aria-label="Primary">
         <a class="nav-link" href="#about">About</a>
         <a class="nav-link" href="#podcast">Listen</a>
@@ -185,7 +185,7 @@
   </header>
 
   <main>
-    <!-- Each section fills the screen under the header -->
+    <!-- Full-screen sections -->
     <section id="top" class="section hero">
       <div class="wrap section-inner">
         <h1 id="heroTitle">Loading…</h1>
@@ -206,7 +206,7 @@
       </div>
     </section>
 
-    <!-- LISTEN: Hard-coded Spotify show embed (no upload UI) -->
+    <!-- LISTEN: hard-coded Spotify show embed -->
     <section id="podcast" class="section alt">
       <div class="wrap section-inner">
         <h2 id="listenHeading">Listen</h2>
@@ -277,37 +277,39 @@
         const closeBtn = $('drawerClose');
         const backdrop = $('drawerBackdrop');
 
+        const firstLink = () => drawer?.querySelector('.drawer-links a');
+
         function openDrawer() {
           drawer.classList.add('open');
           drawer.setAttribute('aria-hidden', 'false');
           btn.setAttribute('aria-expanded', 'true');
           backdrop.hidden = false;
           backdrop.classList.add('open');
-          // prevent background scroll on iOS
-          document.body.style.overflow = 'hidden';
+          document.body.style.overflow = 'hidden';     // lock background scroll
+          setTimeout(() => firstLink()?.focus(), 0);   // focus first link
         }
         function closeDrawer() {
           drawer.classList.remove('open');
           drawer.setAttribute('aria-hidden', 'true');
           btn.setAttribute('aria-expanded', 'false');
           backdrop.classList.remove('open');
-          // delay hiding to allow fade-out
           setTimeout(() => { backdrop.hidden = true; }, 250);
           document.body.style.overflow = '';
+          btn.focus({preventScroll:true});
         }
 
-        btn && btn.addEventListener('click', () => {
-          const isOpen = drawer.classList.contains('open');
-          isOpen ? closeDrawer() : openDrawer();
+        btn?.addEventListener('click', () => {
+          drawer.classList.contains('open') ? closeDrawer() : openDrawer();
         });
-        closeBtn && closeBtn.addEventListener('click', closeDrawer);
-        backdrop && backdrop.addEventListener('click', closeDrawer);
-        drawer && drawer.addEventListener('click', (e) => {
+        closeBtn?.addEventListener('click', closeDrawer);
+        backdrop?.addEventListener('click', closeDrawer);
+        drawer?.addEventListener('click', (e) => {
           if (e.target.matches('.drawer-links a')) closeDrawer();
         });
         document.addEventListener('keydown', (e) => {
           if (e.key === 'Escape') closeDrawer();
         });
+        window.addEventListener('hashchange', closeDrawer);
 
         /* ---------- Content from content.json (no fallback) ---------- */
         const el = {
@@ -365,7 +367,7 @@
               const id = card.getAttribute('data-episode-id');
               const e = (data.episodes || []).find(x => String(x.id) === String(id));
               if (!e) return;
-              if (e.link)       window.open(e.link, '_blank');
+              if (e.link)         window.open(e.link, '_blank');
               else if (e.embedUrl) window.open(e.embedUrl, '_blank');
               else if (e.audioUrl) window.open(e.audioUrl, '_blank');
             });
@@ -399,7 +401,7 @@
           setText(el.aboutCopy,    data.about?.copy || '');
           setHTML(el.aboutBullets, (data.about?.bullets || []).map(b => `<li>${b}</li>`).join(''));
 
-          // Headings & contact
+          // Section headings & contact
           setText(el.listenHeading,   data.listen?.heading || 'Listen');
           setText(el.episodesHeading, data.episodesHeading || 'Latest episodes');
           setText(el.retroHeading,    data.retroHeading    || 'Retro spotlights');
@@ -419,7 +421,7 @@
           if (el.featuredGrid) el.featuredGrid.innerHTML = (data.featured || []).map(featuredCard).join('');
 
           installEpisodeClicks(data);
-        })().catch(err => console.error(err)); // no fallback by design
+        })().catch(err => console.error(err)); // no fallback
       });
     })();
   </script>
